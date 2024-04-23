@@ -27,7 +27,7 @@ public class DocenteService {
         return docenteRepository.findAll();
     }
 
-    public Docente getDocenteById(long id) {
+    public Docente findDocenteById(long id) {
         return docenteRepository.findById(id).get();
     }
 
@@ -42,8 +42,14 @@ public class DocenteService {
         return foundDocente;
     }
 
-    public void deleteDocente(long id) {
-        docenteRepository.deleteById(id);
+    public Optional<Docente> deleteDocente(long id) {
+        Optional<Docente> foundDocente = docenteRepository.findById(id);
+        if(foundDocente.isEmpty()) {
+            return Optional.empty();
+        }else{
+            docenteRepository.deleteById(id);
+           return foundDocente;
+        }
     }
 
     public List<DocenteDTO> convert() {
