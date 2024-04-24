@@ -59,4 +59,5 @@ public class DocenteService {
     public List<Docente> findByNome(String nome) {
         return docenteRepository.findByNome(nome);
     }
+
 }

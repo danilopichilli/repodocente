@@ -4,7 +4,6 @@ import com.example.docente.dto.DocenteDTO;
 import com.example.docente.entity.Docente;
 import com.example.docente.service.DocenteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
