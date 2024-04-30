@@ -28,11 +28,11 @@ public class DocenteService {
         return docenteRepository.findAll();
     }
 
-    public Docente findDocenteById(long id) {
+    public Docente findDocenteById(Long id) {
         return docenteRepository.findById(id).get();
     }
 
-    public Optional<Docente> updateDocente(Docente docente, long id) {
+    public Optional<Docente> updateDocente(Docente docente, Long id) {
         Optional<Docente> foundDocente = docenteRepository.findById(id);
         if (foundDocente.isEmpty()) {
             return Optional.empty();
@@ -43,7 +43,7 @@ public class DocenteService {
         return foundDocente;
     }
 
-    public Optional<Docente> deleteDocente(long id) {
+    public Optional<Docente> deleteDocente(Long id) {
         Optional<Docente> foundDocente = docenteRepository.findById(id);
         if(foundDocente.isEmpty()) {
             return Optional.empty();
