@@ -67,5 +67,8 @@ public class DocenteController {
         return docenteService.findDocenteById(id);
     }
 
-
+    @GetMapping(value = "/findByNomeAndCognome/{nome}/{cognome}")
+    public Docente findByNomeAndCognome(@PathVariable String nome, @PathVariable String cognome){
+        return docenteService.findByNomeAndCognome(nome,cognome);
+    }
 }

@@ -11,4 +11,6 @@ public interface DocenteRepository extends JpaRepository<Docente, Long> {
 
     List<Docente> findByNome(String nome);
 
+    Docente findByNomeAndCognome(String nome, String cognome);
+
 }
