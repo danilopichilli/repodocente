@@ -32,12 +32,12 @@ public class DocenteController {
     }
 
     @GetMapping("/cerca/{id}")
-    public Docente findDocenteById(@PathVariable long id){
+    public Docente findDocenteById(@PathVariable Long id){
         return docenteService.findDocenteById(id);
     }
 
     @PutMapping("/modifica/{id}") //modifica/1
-    public String update(@RequestBody Docente docente, @PathVariable long id){
+    public String update(@RequestBody Docente docente, @PathVariable Long id){
         if(docenteService.updateDocente(docente,id).isPresent()){
             return "Aggiornato!";
         }
@@ -45,7 +45,7 @@ public class DocenteController {
     }
 
     @DeleteMapping("/cancella")
-    public String delete(@PathVariable long id){
+    public String delete(@PathVariable Long id){
         if(docenteService.deleteDocente(id).isPresent()){
             return "Eliminato!";
         }
@@ -63,8 +63,14 @@ public class DocenteController {
     }
 
     @GetMapping(value = "/getDocente/{id}", produces = "application/json")
-    public Docente getDocenteById(@PathVariable long id){
+    public Docente getDocenteById(@PathVariable Long id){
         return docenteService.findDocenteById(id);
+    }
+
+    @GetMapping(value = "/findDocente")
+    public Docente findDocente(){
+
+        return null;
     }
 
 
