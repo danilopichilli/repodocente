@@ -28,7 +28,7 @@ public class DocenteController {
 
     @GetMapping("/lista")
     public List<Docente> getAllDocenti(){
-        return docenteService.getAllDocentes();
+        return docenteService.findDocenti();
     }
 
     @GetMapping("/cerca/{id}")
@@ -57,28 +57,23 @@ public class DocenteController {
         return docenteService.convert();
     }
 
-    @GetMapping("/findByNome/{nome}")
+    @GetMapping("/findDocenteByNome/{nome}")
     public List<Docente> findByNome(@PathVariable String nome){
         return docenteService.findByNome(nome);
     }
 
+    //REST TEMPLATE CONNECTION
     @GetMapping(value = "/getDocente/{id}", produces = "application/json")
     public Docente getDocenteById(@PathVariable Long id){
         return docenteService.findDocenteById(id);
     }
 
-<<<<<<< HEAD
+    //REST TEMPLATE CONNECTION
     @GetMapping(value = "/findByNomeAndCognome/{nome}/{cognome}")
     public Docente findByNomeAndCognome(@PathVariable String nome, @PathVariable String cognome){
         return docenteService.findByNomeAndCognome(nome,cognome);
     }
-=======
-    @GetMapping(value = "/findDocente")
-    public Docente findDocente(){
-
-        return null;
-    }
 
 
->>>>>>> 346d268369015f5e5b35c3883bbdc24bc412a4d8
+
 }

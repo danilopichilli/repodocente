@@ -7,7 +7,6 @@ import com.example.docente.repository.DocenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +23,7 @@ public class DocenteService {
         docenteRepository.save(docente);
     }
 
-    public List<Docente> getAllDocentes() {
+    public List<Docente> findDocenti() {
         return docenteRepository.findAll();
     }
 
@@ -54,7 +53,7 @@ public class DocenteService {
     }
 
     public List<DocenteDTO> convert() {
-        return docenteConverter.convertEntityToDto(getAllDocentes());
+        return docenteConverter.convertEntityToDto(findDocenti());
     }
 
     public List<Docente> findByNome(String nome) {
@@ -62,7 +61,7 @@ public class DocenteService {
     }
 
     public Docente findByNomeAndCognome(String nome, String cognome) {
-        for(Docente docente : getAllDocentes()) {
+        for(Docente docente : findDocenti()) {
             if(docente.getNome().equals(nome) && docente.getCognome().equals(cognome)) {
                 return docenteRepository.findByNomeAndCognome(nome, cognome);
             }
@@ -72,5 +71,6 @@ public class DocenteService {
         docente.setCognome(cognome);
         return docenteRepository.save(docente);
     }
+
 
 }
