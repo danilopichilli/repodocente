@@ -53,8 +53,8 @@ public class DocenteController {
     }
 
     @GetMapping("/convert")
-    public List<DocenteDTO> convert(){
-        return docenteService.convert();
+    public List<DocenteDTO> getListaDocenteDto(){
+        return docenteService.getListaDocenteDto();
     }
 
     @GetMapping("/findDocenteByNome/{nome}")

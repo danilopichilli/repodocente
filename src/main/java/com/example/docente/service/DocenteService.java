@@ -52,7 +52,7 @@ public class DocenteService {
         }
     }
 
-    public List<DocenteDTO> convert() {
+    public List<DocenteDTO> getListaDocenteDto() {
         return docenteConverter.convertEntityToDto(findDocenti());
     }
 
@@ -61,7 +61,8 @@ public class DocenteService {
     }
 
     public Docente findByNomeAndCognome(String nome, String cognome) {
-        for(Docente docente : findDocenti()) {
+        List<Docente> docenteList = docenteRepository.findAll();
+        for(Docente docente : docenteList) {
             if(docente.getNome().equals(nome) && docente.getCognome().equals(cognome)) {
                 return docenteRepository.findByNomeAndCognome(nome, cognome);
             }
